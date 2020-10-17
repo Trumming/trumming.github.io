@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Next主题之tags页面报错</title>
+    <url>/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Next%E4%B8%BB%E9%A2%98%E4%B9%8BTags%E9%A1%B5%E9%9D%A2%E6%8A%A5%E9%94%99.html</url>
+    <content><![CDATA[<p>对于博主新手来说，对于javascript和前端，网页制作都是小白，认识非常少。虽然这个问题很小，但是遇到问题有时不知道如何下手，在一些错误的方法中试错，非常耽误时间。这里多亏网友们的分享，才能快速定位到可能的原因，最后慢慢解决问题。</p>
+<a id="more"></a> 
+
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>  这段时间博主遇到了一些问题，debug信息如下：</p>
+<pre><code>GET /tags/ 404 0.993 ms - 144</code></pre>
+<p>  我按照Next给出文档打开相应的tags标签，在public文件夹中也生成了_tags_文件夹，但在页面点击标签时爆出上面的错误，很是纳闷。配置如下：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">tags</span></span><br></pre></td></tr></table></figure>
+<p>  最后通过查阅网友的搭建经验分享和<a href="http://theme-next.iissnan.com/theme-settings.html#tags-page">next官方文档</a>，最后找到了答案。我虽然在Next主题的配置文件_config.yml_中打开了tags标签，但是并没有在_tags_文件夹中生成index.html文件，从而导致了问题的产生，所以解决的方式就是创建出这个index.html文件。</p>
+<h1 id="创建新页"><a href="#创建新页" class="headerlink" title="创建新页"></a>创建新页</h1><p>  通过<code>new page</code>命令来生成所需要的页面。</p>
+<pre><code>$ hexo new page tags</code></pre>
+<p>  此命令会在_source_文件夹中生成一个_tags_文件夹，里头有一个index.md文件，修改其中内容为：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>  然后再重新生成网页，这时发现在_tags_文件夹中生成了index.html文件。最后经过测试问题解决。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>分析解决这个问题过程中会用到的命令：</p>
+<ul>
+<li>查看debug信息<br>通过在命令后面加<code>--debug</code>字段显示调试信息，例如：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server --debug</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建页面命令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page &lt;title&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Next主题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Numpy and Pandas</title>
+    <url>/Python/Numpy-and-Pandas.html</url>
+    <content><![CDATA[<p>Numpy 和 Pandas[^1]是科学运算当中最重要的两个模块，在数据分析，机器学习领域不可或缺。其特点是运算速度快和消耗的资源少。</p>
+<a id="more"></a>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在windows 10下通过下面指令安装成功。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip install numpy</span><br><span class="line">$ pip install pandas</span><br></pre></td></tr></table></figure>
+<p>如果安装遇到问题，可能与VS有关，网络上有很多解决办法。</p>
+<h2 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h2><p>numpy arrary的属性：</p>
+<ul>
+<li>ndim ： 维度</li>
+<li>shape：行数与列数</li>
+<li>size：元素个数</li>
+</ul>
+<p>numpy 的方法：</p>
+<ul>
+<li>array() ：创建数组</li>
+<li>zeros()：创建数据全为0的数组</li>
+<li>ones()：创建数据全为1的数组</li>
+<li>empty()：创建数据全接近0的数组</li>
+<li>arrange()：按指定范围创建数据</li>
+<li>linspace(): 创建线段</li>
+<li>reshape(): 改变数据形状</li>
+</ul>
+<p>numpy的属性：</p>
+<ul>
+<li>dtype: 指定数据类型</li>
+</ul>
+<p>将元素列表转化成numpy矩阵：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">array = np.arrary([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">                  [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个Array并指定数据类型为float，数据类型有int，int32, float32</span></span><br><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>],dtype=np.float)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个元素全为1的2x5的2维矩阵</span></span><br><span class="line">all_1 = np.ones((<span class="number">2</span>,<span class="number">5</span>),dtype=np.int)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用arrange创建[10,19]步长为1的连续数组</span></span><br><span class="line">a = np.arange(<span class="number">10</span>,<span class="number">20</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将连续数据改变成2x5的2维矩阵</span></span><br><span class="line">a = a.reshape(<span class="number">2</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>Numpy基础运算：</p>
+<ul>
+<li>加减乘除<ul>
+<li>加, 减  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">c &#x3D; a - all_1</span><br><span class="line">c &#x3D; a + all_1</span><br></pre></td></tr></table></figure></li>
+<li>乘，这里的乘法是里面元素一一对应的相乘而非矩阵乘法  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">c &#x3D; a * all_1</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>平方<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">c &#x3D; a**2</span><br></pre></td></tr></table></figure></li>
+<li>矩阵乘法<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">c_dot &#x3D; a.dot(all_1)	or</span><br><span class="line">c_dot &#x3D; np.dot(a, all_1)</span><br></pre></td></tr></table></figure></li>
+<li>常用数学函数<ul>
+<li>sin</li>
+<li>sum</li>
+<li>min</li>
+<li>max</li>
+<li>argmin() 获取矩阵中最小元素的索引</li>
+<li>argmax() 获取矩阵中最大元素的索引</li>
+<li>mean() 求均值</li>
+<li>median() 求中位数</li>
+<li>cumsum() 生成的每一项矩阵元素均是从原矩阵首项累加到对应项的元素之和</li>
+<li>diff() 累差函数，没一行中后一项与前一项的差，最后一列舍去</li>
+<li>sort() </li>
+<li>transpose() 求矩阵转置</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h2><p>Pandas是基于Numpy构建的，让Numpy为中心的应用变得更加简单。首先理解其两个数据结构：Series和DataFrame。</p>
+<h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><p><code>Series</code>可以将他理解成一列数据，索引在左边，值在右边。如果数据未指定索引，系统自动创建一个0到N-1（N为长度）的整数型索引。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># create a series</span><br><span class="line">import pandas as pd</span><br><span class="line">s &#x3D; pd.Series([1,3,6,np.nan,44,1])</span><br></pre></td></tr></table></figure>
+<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><p><code>DataFrame</code>是一个表格型的数据结构，它包含有多组有序的列，每列可以是不同的值类型（数值，字符串，布尔值等）。<code>DataFrame</code>既有行索引也有列索引， 它可以被看做由<code>Series</code>组成的大字典。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 创建一个DataFrame结构，列名称分别为a，b，c，d，shape为6x4的矩阵</span><br><span class="line">df &#x3D; pd.DataFrame(np.random.randn(6,4),columns&#x3D;[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;])</span><br><span class="line"></span><br><span class="line"># 创建一个DataFrame结构，列名称分别为a，b，c，d，shape为6x4的矩阵，并且指定行名称</span><br><span class="line">dates &#x3D; pd.date_range(&#39;20160101&#39;,periods&#x3D;6)</span><br><span class="line">df &#x3D; pd.DataFrame(np.random.randn(6,4),index&#x3D;dates,columns&#x3D;[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;])</span><br></pre></td></tr></table></figure>
+<p>DataFrame的方法：</p>
+<ul>
+<li>describe(), 得出一些统计值</li>
+<li>head(), 获取前5个数据</li>
+<li>hist(), 绘制柱状图</li>
+<li>reindex(), 重新排列</li>
+<li>isnull(), 判断是否有缺失数据<code>NaN</code></li>
+<li>…</li>
+</ul>
+<p>这里插入一些关于将数据绘制成图形的使用。<code>matplotlib</code>是Python中用的非常广的绘图库，windows平台可以通过下面命令来安装。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3 install matplotlib</span><br></pre></td></tr></table></figure>
+<p>在代码中通过import将其导入，进行使用。</p>
+<p>例程：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line"># 导入matplot pyplot库</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"># 随机生成1000个数据，并有4列，列标签为‘A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;</span><br><span class="line">data &#x3D; pd.DataFrame(np.random.randn(100,4),</span><br><span class="line">		index&#x3D;np.arange(100),</span><br><span class="line">		columns&#x3D;list(&quot;ABCD&quot;))</span><br><span class="line"># 打印前5行数据</span><br><span class="line">print(data.head())</span><br><span class="line"></span><br><span class="line"># pandas 数据可以直接观看其可视化形式，线性图。</span><br><span class="line">data.plot()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># 绘制点图</span><br><span class="line">ax&#x3D;data.plot.scatter(x&#x3D;&#39;A&#39;,y&#x3D;&#39;B&#39;,color&#x3D;&#39;DarkBlue&#39;,label&#x3D;&#39;Class A&#39;)</span><br><span class="line"></span><br><span class="line"># 通过下面这条语句可以将ax的图形与下面的图形合并一起绘制</span><br><span class="line"># data.plot.scatter(x&#x3D;&#39;C&#39;,y&#x3D;&#39;D&#39;,color&#x3D;&#39;DarkGreen&#39;,label&#x3D;&#39;Class B&#39;,ax&#x3D;ax)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>可能不是很详尽，但是足以入门，往后有使用还是要借助网络搜索。</p>
+<p>[^1]:<a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">Numpy User Guide</a><br>[^2]:<a href="https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/2-1-np-attributes/">莫烦Python</a></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>QNX slog2上手指南</title>
+    <url>/QNX/QNX%20slog2%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97.html</url>
+    <content><![CDATA[<p>slog2 是QNX系统提供的一套log机制；可通过slog2info命令获取历史log；</p>
+<a id="more"></a>
+
+<h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>slog2 是QNX系统提供的一套log机制；可通过slog2info命令获取历史log；</p>
+<h1 id="使用slog2"><a href="#使用slog2" class="headerlink" title="使用slog2"></a>使用slog2</h1><h2 id="启用流程"><a href="#启用流程" class="headerlink" title="启用流程"></a>启用流程</h2><p>1 配置<strong>buffer集</strong>名称和大小，以及log等级</p>
+<p>2 创建slog2 <strong>buffer集</strong> 实例</p>
+<p>3 打印log</p>
+<h3 id="1-配置"><a href="#1-配置" class="headerlink" title="1 配置"></a>1 配置</h3><ul>
+<li><p>buffer set 配置</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    int                   num_buffers;</span><br><span class="line">    const char           *buffer_set_name;</span><br><span class="line">    uint8_t               verbosity_level;</span><br><span class="line">    slog2_buffer_config_t buffer_config[ SLOG2_MAX_BUFFERS ];</span><br><span class="line">    uint32_t              max_retries;</span><br><span class="line">&#125; slog2_buffer_set_config_t;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>num_buffers ： log <strong>buffer集</strong> 中有多少个buffer</li>
+<li>buffer_set_name : log <strong>buffer集</strong>的名称一般是进程名，slog2info -b 参数使用</li>
+<li>verbosity_level ： 整个log <strong>buffer集</strong>中的最小verbosity_level，只有高于verbosity_level的log才会写入log buffer中；</li>
+<li>buffer_config ：log buffer</li>
+</ul>
+</li>
+<li><p>buffer 配置</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    const char    *buffer_name;</span><br><span class="line">    int            num_pages;</span><br><span class="line">&#125; slog2_buffer_config_t;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>buffer name ： slog2 buffer 名称</li>
+<li>num_pages : 用于定于log buffer的大小，一个page是4kB</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-创建slog2-buffer集实例"><a href="#2-创建slog2-buffer集实例" class="headerlink" title="2 创建slog2 buffer集实例"></a>2 创建slog2 buffer集实例</h3><pre><code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;sys&#x2F;slog2.h&gt;</span><br><span class="line"></span><br><span class="line">int slog2_register( slog2_buffer_set_config_t *config,</span><br><span class="line">                    slog2_buffer_t *handles,</span><br><span class="line">                    uint32_t flags );</span><br></pre></td></tr></table></figure>
+
+* config ： buffer集的配置结构体
+* handles ： 返回操作buffer的handle，后面打印log函数会用到
+* flags ：用于指定是否存放到flash中，方便热启时恢复；[参考链接](http://www.qnx.com/developers/docs/7.1/#com.qnx.doc.neutrino.lib_ref/topic/s/slog2_register.html)
+* 返回值：0 成功，-1 失败</code></pre>
+<h3 id="3-打印log"><a href="#3-打印log" class="headerlink" title="3 打印log"></a>3 打印log</h3><ul>
+<li>打印一段固定字符串</li>
+</ul>
+<p><code>int slog2c( slog2_buffer_t buffer,             uint16_t code,             uint8_t severity,             const char* data );</code></p>
+<p>slog2c( handle, 0, SLOG2_INFO,  “Writing a constant string into the buffer” );</p>
+<p><strong>code</strong>参数在slog2info -e 中用到，slog2系统不做任何处理；</p>
+<ul>
+<li>打印一段格式化字符串<br>`int slog2f( slog2_buffer_t buffer,<pre><code>      uint16_t code,
+      uint8_t severity,
+      const char* format, ... );`</code></pre>
+</li>
+</ul>
+<p>slog2f( handle, 0, SLOG2_INFO, “Writing a formatted string into the buffer: %s”, argv[0] );</p>
+<ul>
+<li>打印一段格式化字符串，不会触发中断，可用于中断函数中，格式化是在读取log的时候发生<br>`int slog2fa( slog2_buffer_t buffer,<pre><code>       uint16_t code,
+       uint8_t severity,
+       const char* format, ... );`</code></pre>
+</li>
+</ul>
+<p>SLOG2_FA_ 开头的宏必须的；</p>
+<p>slog2fa( buffer_handle[0], 0, SLOG2_WARNING, “string:%s, some_number:%d”,SLOG2_FA_STRING( “Hello world” ),SLOG2_FA_SIGNED( some_number ),SLOG2_FA_END);</p>
+<h2 id="编译选项"><a href="#编译选项" class="headerlink" title="编译选项"></a>编译选项</h2><ul>
+<li>头文件 #include &lt;sys/slog2.h&gt;</li>
+<li>需要链接库 libslog2 </li>
+</ul>
+<h1 id="查看slog2"><a href="#查看slog2" class="headerlink" title="查看slog2"></a>查看slog2</h1><p>使用slog2info 命令来查看具体的log内容<br><code>slog2info [-acfinSstvWw] [-b bset1,bset2,...] [-d path]           [-e code1,code2,...] [-l filename] [-r [resetfilename]]</code></p>
+<ul>
+<li>查看某一个bufferset的log  <code>slog2info -b buffer_set_name</code></li>
+<li>查看从最后一次reset开始的log  <code>slog2info -r</code></li>
+</ul>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>verbosity_level：</p>
+<ul>
+<li>SLOG2_SHUTDOWN — shut down the system now (e.g., for OEM use).</li>
+<li>SLOG2_CRITICAL — unexpected unrecoverable error (e.g., hard disk error).</li>
+<li>SLOG2_ERROR — unexpected recoverable error (e.g., you need to reset a hardware controller).</li>
+<li>SLOG2_WARNING — expected error (e.g., parity error on a serial port).</li>
+<li>SLOG2_NOTICE — warning (e.g., out of paper).</li>
+<li>SLOG2_INFO — information (e.g., printing page 3).</li>
+<li>SLOG2_DEBUG1 — debug messages (e.g., normal detail).</li>
+<li>SLOG2_DEBUG2 — debug messages (e.g., fine detail).</li>
+</ul>
+]]></content>
+      <categories>
+        <category>QNX</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SLM (System launch and monitor) 系统启动和监控上手指南</title>
+    <url>/QNX/SLM%20(System%20launch%20and%20monitor)%20%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E5%92%8C%E7%9B%91%E6%8E%A7%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97.html</url>
+    <content><![CDATA[<h1 id="SLM-System-launch-and-monitor"><a href="#SLM-System-launch-and-monitor" class="headerlink" title="SLM (System launch and monitor)"></a>SLM (System launch and monitor)</h1><p>QNX为一些复杂的进程提供便利的启动手段，尤其适合多个进程之间存在依赖，且它们之间有严格的启动时序要求的场景；</p>
+<a id="more"></a> 
+
+<p><a href="http://www.qnx.com/developers/docs/7.0.0/index.html#com.qnx.doc.neutrino.utilities/topic/s/slm.html">QNX Doc 7.0 : SLM</a></p>
+<h2 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">slm [-avV] [-D debug_mode] [-n subsystem_path] [-p priority]</span><br><span class="line">    [-P search_path] [-r recovery_mode] [-R frequency&#x2F;sec|min|hour]</span><br><span class="line">    [-s comp_name] [-t polling_interval] [-T total_wait]</span><br><span class="line">    [-x comp_name] config_file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>-v 设定slog2输出等级，并输出到slog2系统，默认是warning等级；它是累加的，-vv = verbosity Level 2,-vvvvvvv = verbosity Level 7;</li>
+<li>-V 设定log输出等级，并输出到控制台，默认是error等级；它是累加的，-VV = verbosity Level 2,-VVVVVVVV = verbosity Level 7;</li>
+</ul>
+<h2 id="SLM-configuration-file"><a href="#SLM-configuration-file" class="headerlink" title="SLM configuration file"></a>SLM configuration file</h2><p>使用xml来配置启动的进程</p>
+<h3 id="xml的根元素"><a href="#xml的根元素" class="headerlink" title="xml的根元素"></a>xml的根元素</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;SLM:system&gt;</span><br><span class="line">    -- component and module descriptions --</span><br><span class="line">&lt;&#x2F;SLM:system&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h3><p>所有的进程都将存放在components中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;SLM:component name&#x3D;&quot;qconn&quot;&gt;</span><br><span class="line">    -- component properties --</span><br><span class="line">&lt;&#x2F;SLM:component&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><p>有将近20来个参数，捡几个常用的讲讲；</p>
+<ul>
+<li>args ：运行进程是后面的参数，多个参数只需要用空格分开即可</li>
+<li>cd ： 在执行command前，执行切换路径命令cd</li>
+<li>command ： 需要SLM执行的命令，或者进程</li>
+<li>depend ： 启动command的依赖，为component name，多个依赖需要增加这个字段</li>
+<li>waitfor ： 进程启动后，只有waitfor的项目满足了，才会去启动依赖该项目的命令或进程</li>
+</ul>
+<h3 id="modules"><a href="#modules" class="headerlink" title="modules"></a>modules</h3><p>由多个component组成</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;SLM:module name&#x3D;&quot;device_monitors&quot;&gt;</span><br><span class="line">    -- module description --</span><br><span class="line">&lt;&#x2F;SLM:module&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>样例XML文件</li>
+</ul>
+<p>net-setup模块，包含了io-pkt和ifconfig两个Component;</p>
+<ul>
+<li>首先，启动io-pkt这个组件</li>
+<li>第二，通过ifconfig设置ip</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;SLM:system&gt;</span><br><span class="line">    &lt;SLM:component name&#x3D;&quot;io-pkt&quot;&gt;</span><br><span class="line">        &lt;SLM:command&gt;&#x2F;sbin&#x2F;io-pkt-v6-hc&lt;&#x2F;SLM:command&gt;</span><br><span class="line">        &lt;SLM:args&gt;-ptcpip stacksize&#x3D;8192&lt;&#x2F;SLM:args&gt;</span><br><span class="line">        &lt;SLM:waitfor wait&#x3D;&quot;pathname&quot;&gt;&#x2F;dev&#x2F;socket&lt;&#x2F;SLM:waitfor&gt;</span><br><span class="line">    &lt;&#x2F;SLM:component&gt;</span><br><span class="line">    &lt;SLM:component name&#x3D;&quot;ifconfig&quot;&gt;</span><br><span class="line">        &lt;SLM:depend&gt;io-pkt&lt;&#x2F;SLM:depend&gt;</span><br><span class="line">        &lt;SLM:command&gt;&#x2F;sbin&#x2F;ifconfig&lt;&#x2F;SLM:command&gt;</span><br><span class="line">        &lt;SLM:args&gt;en0 192.168.1.5 up&lt;&#x2F;SLM:args&gt;</span><br><span class="line">        &lt;SLM:waitfor wait&#x3D;&quot;exits&quot;&gt;&lt;&#x2F;SLM:waitfor&gt;</span><br><span class="line">    &lt;&#x2F;SLM:component&gt;</span><br><span class="line">    &lt;SLM:module name&#x3D;&quot;net-setup&quot;&gt;</span><br><span class="line">        &lt;SLM:member&gt;io-pkt&lt;&#x2F;SLM:member&gt;</span><br><span class="line">        &lt;SLM:member&gt;ifconfig&lt;&#x2F;SLM:member&gt;</span><br><span class="line">    &lt;&#x2F;SLM:module&gt;</span><br><span class="line">&lt;&#x2F;SLM:system&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><ul>
+<li>a.xml</li>
+</ul>
+<p>包含两个component</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;SLM:component name&#x3D;&quot;icservice&quot;&gt;</span><br><span class="line">    &lt;SLM:command&gt;&#x2F;cluster&#x2F;bin&#x2F;CMW_Cluster&lt;&#x2F;SLM:command&gt;</span><br><span class="line">    &lt;SLM:args&gt;none&lt;&#x2F;SLM:args&gt;</span><br><span class="line">    &lt;SLM:depend&gt;inc_server&lt;&#x2F;SLM:depend&gt;</span><br><span class="line">    &lt;SLM:repair&gt;none&lt;&#x2F;SLM:repair&gt;</span><br><span class="line">&lt;&#x2F;SLM:component&gt;</span><br><span class="line"></span><br><span class="line">&lt;SLM:component name&#x3D;&quot;icbkhmi&quot;&gt;</span><br><span class="line">    &lt;SLM:cd&gt;&#x2F;cluster&#x2F;icbkhmi&#x2F;&lt;&#x2F;SLM:cd&gt;</span><br><span class="line">    &lt;SLM:command&gt;&#x2F;cluster&#x2F;icbkhmi&#x2F;ClusterBackground&lt;&#x2F;SLM:command&gt;</span><br><span class="line">    &lt;SLM:args&gt;none&lt;&#x2F;SLM:args&gt;</span><br><span class="line">    &lt;SLM:depend&gt;icservice&lt;&#x2F;SLM:depend&gt;</span><br><span class="line">    &lt;SLM:repair&gt;none&lt;&#x2F;SLM:repair&gt;</span><br><span class="line">&lt;&#x2F;SLM:component&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>b.xml</li>
+</ul>
+<p>将a.xml包含到b.xml，这种方式好处是模块化，每个人都可以构建自己模块的一个xml，然后再包含到b.xml中；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE SLM_system [</span><br><span class="line">    &lt;!ENTITY cluster_hmi SYSTEM &#39;a.xml&#39;&gt;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;SLM:system&gt;</span><br><span class="line">    &amp;cluster_hmi;</span><br><span class="line">&lt;&#x2F;SLM:system&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>SLM启动a.xml中定义的两个component</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">slm -V b.xml</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="异常情况"><a href="#异常情况" class="headerlink" title="异常情况"></a>异常情况</h1><ul>
+<li>如果b.xml中有多个module要启动，如果其中一个module因为“ No such file or directory” 错误而无法执行，那么slm将会停止启动排在它后面的模块；</li>
+</ul>
+]]></content>
+      <categories>
+        <category>QNX</category>
+      </categories>
+      <tags>
+        <tag>SLM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Samba使用入门[Ubuntu 16.04]</title>
+    <url>/uncategorized/Samba%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8-Ubuntu-16-04.html</url>
+    <content><![CDATA[<p>家里买了猫盘，启动了samba服务，笔记本安装的ubuntu虚拟机的磁盘可用空间告急，故想着把一些数据搬运到猫盘上，所以才有此文。</p>
+<a id="more"></a> 
+
+<p>ubuntu环境下，可以通过终端<code>smbclient</code>命令访问samba服务器，也通过<code>mount</code>挂载命令将其挂载后当作一个目录来操作了，非常方便。个人喜欢用挂载的方式。通常情况需要<code>smbclient</code>和<code>mount</code>命令一同使用，前者用来查看服务器目录，后者将其挂载。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
+<li>猫盘，开启samba服务，获取到IP <code>192.168.1.201</code></li>
+<li>安装 samba<ul>
+<li>安装  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install samba</span><br></pre></td></tr></table></figure></li>
+<li>检查安装是否成功  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samba -V</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>终端输出 <code>Version 4.3.11-Ubuntu</code> 表示安装成功</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>安装 samba client<ul>
+<li>安装  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install smbclient</span><br></pre></td></tr></table></figure></li>
+<li>检查安装是否成功  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ smbclient -V</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>终端输出 <code>Version 4.3.11-Ubuntu</code> 表示安装成功</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>安装成功之后，接下来就可以通过smbclient命令来访问和操作猫盘了。</p>
+<h1 id="访问samba服务器"><a href="#访问samba服务器" class="headerlink" title="访问samba服务器"></a>访问samba服务器</h1><ul>
+<li><p>查看samba服务器内容</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ smbclient -L 192.168.1.201 -U username</span><br></pre></td></tr></table></figure>
+<p>  -L 列出服务器下的所有目录</p>
+<p>  -U 后面接用户名，表示以该用户名访问</p>
+<p>  or 匿名访问</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">smbclient -L 192.168.1.201</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>敲下命令后终端会提示输入密码，若不输入密码直接Enter则默认为匿名访问模式</p>
+</blockquote>
+</li>
+<li><p>交互方式登陆samba目录</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">smbclient //192.168.1.201/我的猫盘 -U username</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>然后输入密码，成功后出现提示符<code>smb:\&gt;</code> 接着就可以开始操作.</p>
+</blockquote>
+<blockquote>
+<p>可以通过敲入 <strong>? or help</strong> 查看支持的所有命令，再通过 <strong>help cmd</strong> 命令来获取cmd的用法。</p>
+</blockquote>
+</li>
+<li><p>挂载samba目录</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mount -t cifs //192.168.1.201/我的猫盘/00_ubuntu_disk ~/catDriver/ -o username=user</span><br></pre></td></tr></table></figure>
+<p>挂载成功后，就可以当作一个目录来操作了，非常方便。：)</p>
+</li>
+</ul>
+<h1 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h1><p>挂载的过程报如下次</p>
+<blockquote>
+<p>mount: block device //192.168.1.201/我的猫盘/00_ubuntu_disk is write-protected, mounting read-only</p>
+</blockquote>
+<p>原因是未安装 cifs-utils </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install cifs-utils</span><br></pre></td></tr></table></figure>
+
+<p>安装后问题解决</p>
+]]></content>
+      <tags>
+        <tag>Samba</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>元组列表和字典</title>
+    <url>/Python/%E5%85%83%E7%BB%84%20%E5%88%97%E8%A1%A8%E5%92%8C%E5%AD%97%E5%85%B8.html</url>
+    <content><![CDATA[<p>一边总结Python知识，一边学习掌握Markdown语法，很赞。</p>
+<a id="more"></a>
+<h1 id="元组和列表的共同点"><a href="#元组和列表的共同点" class="headerlink" title="元组和列表的共同点"></a>元组和列表的共同点</h1><p>都是一串有顺序的数字。其元素都可以用于迭代，输出，运用和定位输出，有点类似C语言中的数组。</p>
+<h2 id="元组-Tuple"><a href="#元组-Tuple" class="headerlink" title="元组 Tuple"></a>元组 Tuple</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_tuple=(<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">9</span>,<span class="number">10</span>)</span><br><span class="line">b_tuple= <span class="number">7</span>,<span class="number">93</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h2 id="列表-List"><a href="#列表-List" class="headerlink" title="列表 List"></a>列表 List</h2><p>定义一个列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这是一个1x6的列表</span></span><br><span class="line">a_list=[<span class="number">12</span>,<span class="number">34</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">78</span>,<span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+<p>定义一个多维列表</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这是一个3x3的列表</span></span><br><span class="line">a_list_33=[[<span class="number">2</span>,<span class="number">34</span>,<span class="number">5</span>],</span><br><span class="line">           [<span class="number">6</span>,<span class="number">78</span>,<span class="number">9</span>],</span><br><span class="line">           [<span class="number">7</span>,<span class="number">99</span>,<span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
+<h3 id="列表操作"><a href="#列表操作" class="headerlink" title="列表操作"></a>列表操作</h3><ol>
+<li><p>添加<br> 追加</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_list.append(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<p>任意位置插入</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">index = <span class="number">1</span>	<span class="comment">##索引</span></span><br><span class="line">val = <span class="number">500</span>	<span class="comment">##插入的值</span></span><br><span class="line">a_list.insert(index,val)</span><br></pre></td></tr></table></figure></li>
+<li><p>移除<br> 移除指定位置元素</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_list.remove(<span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里只是会删除第一个500，也就是说从索引0位置开始顺序往下找，只删除第一个匹配的元素。</p>
+</blockquote>
+</li>
+<li><p>索引<br> 指定特定位置的元素</p>
+<ul>
+<li>索引为0的元素，即第一个元素<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_list[<span class="number">0</span>]</span><br></pre></td></tr></table></figure></li>
+<li>列表末尾的元素，即最后一个元素<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_list[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure></li>
+<li>取子集<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(a_list[<span class="number">0</span>:<span class="number">3</span>]) <span class="comment"># 显示列表a_list的从第0位 到 第2位 的所有项的值</span></span><br><span class="line">print(a_list[<span class="number">5</span>:])  <span class="comment"># 显示列表a_list的第5位及以后的所有项的值</span></span><br><span class="line">print(a_list[<span class="number">-3</span>:]) <span class="comment"># 显示列表a_list的倒数第3位及以后的所有项的</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>排序<br> 列表自带sort()方法用于排序。例如：</p>
+<ul>
+<li>升序<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_list.sort()	<span class="comment">#升序</span></span><br></pre></td></tr></table></figure></li>
+<li>降序<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_list.sort(reverse=<span class="literal">True</span>)	<span class="comment">#降序</span></span><br></pre></td></tr></table></figure>
+<h2 id="用于迭代和定位"><a href="#用于迭代和定位" class="headerlink" title="用于迭代和定位"></a>用于迭代和定位</h2>元组和列表均可用于迭代。<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> dat <span class="keyword">in</span> b_tuple:</span><br><span class="line">	print(dat)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> dat <span class="keyword">in</span> a_list:</span><br><span class="line">	print(dat)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(len(a_list)):</span><br><span class="line">	print(<span class="string">&#x27;index=&#x27;</span>,index,<span class="string">&#x27;,value=&#x27;</span>,a_list[index])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(len(a_tuple)):</span><br><span class="line">	print(<span class="string">&#x27;index=&#x27;</span>,index,<span class="string">&#x27;,value=&#x27;</span>,a_tuple[index])</span><br></pre></td></tr></table></figure>
+<h1 id="字典-dict"><a href="#字典-dict" class="headerlink" title="字典 dict"></a>字典 dict</h1>在字典中存在<code>key</code>和<code>value</code>两种元素。每一个<code>key</code> 对应一个<code>value</code>，<code>key</code>是名字，而<code>value</code>是其对应的内容。在同一个字典类型的数据体中，每个元素的<code>key</code>和<code>value</code>数据类型可以不一致。与元组和列表相比，其存放是无序的。</li>
+</ul>
+</li>
+</ol>
+<h2 id="定义一个字典"><a href="#定义一个字典" class="headerlink" title="定义一个字典"></a>定义一个字典</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_dict=&#123;<span class="string">&#x27;apple&#x27;</span>:<span class="string">&#x27;iphone&#x27;</span>,<span class="string">&#x27;pear&#x27;</span>:<span class="number">10</span>,<span class="string">&#x27;car&#x27;</span>:<span class="string">&#x27;bmw&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="索引一个元素"><a href="#索引一个元素" class="headerlink" title="索引一个元素"></a>索引一个元素</h2><p>字典的元素是通过<code>key</code>来索引的，只要知道<code>key</code>值就能获取到内容。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(a_dict[<span class="string">&#x27;apple&#x27;</span>])	<span class="comment"># 查找key为&#x27;apple&#x27;的内容</span></span><br><span class="line">print(a_dict[<span class="string">&#x27;pear&#x27;</span>])	<span class="comment"># 查找key为&#x27;pear&#x27;的内容</span></span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>元组和列表对于学过C语言的人来说，很容易理解也很容易掌握。元组就是一个基本数据组合，与C的数组基本一致。列表较元组的不同是，其有一些自带的方法，例如插入，追加元素，排序等。<br>这里对我来说字典是一个新接触的数据容器，之前有涉猎一些数据库的知识，所以学习掌握起来也觉得非常简单。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用Hexo和Github Page搭建个人静态博客</title>
+    <url>/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%88%A9%E7%94%A8Hexo%E5%92%8CGithub%20Page%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2.html</url>
+    <content><![CDATA[<p>通过Github Page搭建个人免费的静态博客，使用开源Hexo博客框架快速搭建博客，免去造轮子的工作，使得网络新手小白给自己搭建博客成为可能。</p>
+<a id="more"></a>
+<h1 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h1><ul>
+<li>github 账号</li>
+<li>Git</li>
+<li>Node.js</li>
+<li>Hexo</li>
+<li>科学上网</li>
+</ul>
+<h2 id="github账号"><a href="#github账号" class="headerlink" title="github账号"></a>github账号</h2><p>在<a href="https://github.com/">github</a>上注册个人账号。并参考<a href="https://pages.github.com/">Github Page</a>上描述的简单步骤来创建博客的仓库。</p>
+<blockquote>
+<p>If the first part of the repository doesn’t exactly match your username, it won’t work, so make sure to get it right. 注意仓库的名字要与你的用户名一致，否则不能工作。</p>
+</blockquote>
+<h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><ul>
+<li><p>Git<br>下载，安装Git，用于代码的托管</p>
+</li>
+<li><p>Node.js<br><a href="https://nodejs.org/">Node.js</a> 是<a href="https://hexo.io/">Hexo</a>的依赖，Hexo需要依赖Node.js来工作。根据推荐下载合适的版本安装即可。</p>
+</li>
+<li><p>Hexo<br>Hexo是一套开源的博客框架。安装好Git和Node.js之后，在Git Bash终端中输入以下命令进行安装。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nmp install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h1 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h1></li>
+<li><p>步骤</p>
+<ul>
+<li><p><a href="https://hexo.io/zh-cn/docs/setup.html">建站</a></p>
+<blockquote>
+<p>通过以下指令来生成所需要的文件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>按照需要配置博客信息<br>在<strong>folder</strong>文件夹下生成的 ** _config.yml ** 是网站的 <a href="https://hexo.io/zh-cn/docs/configuration.html">配置</a> 信息，可以在此配置大部分的参数，比如对网站的标题，语言，主题等进行配置。</p>
+</li>
+<li><p>生成博客</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate </span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></li>
+<li><p>预览博客</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server	</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>如果以上步骤没有出现错误，则打开浏览器输入网址 <a href="http://localhost:4000/">http://localhost:4000/</a> 即可预览博客</p>
+</li>
+<li><p>部署博客<br>部署是将生成好的博客代码，传输到博客的服务器上，这里对应的是Github Page。首先，需要对** _config.yml **配置文件中的 deploy字段进行配置。Hexo支持三种形式的<a href="https://hexo.io/zh-cn/docs/deployment.html">部署</a>，通过工具，或者是将生成博客文件自行上传到博客的仓库里，Hexo生成的所有博客所需文件都存放在Public中。然后，再执行部署命令进行部署。</p>
+<blockquote>
+<p>__Note: hexo的部署需要安装依赖包 <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>。 __<br>配置 _config.yml, 下面以使用Git工具为例</p>
+</blockquote>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">	<span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">	<span class="attr">repo:</span> <span class="string">git@github.com:username/username.github.io.git</span></span><br><span class="line">	<span class="attr">message:</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行部署命令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>到此，通过Hexo博客framework搭建个人静态博客到此算是成功一半了，因为这仅仅是把博客的一整个套路走完了，后面还会涉及到一些文章的新建，博客主题的设定，评论区的构成等等。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这是我个人第一次在网络上搭建博客，将自己的搭建的过程简略的回忆和复述，以提高个人的学习以及写作能力，以此同时要是能供新手小白参考入门起到一定积极作用更佳。网络上大神无私的分享自己的搭建经验，引领我入门，在此谢过！</p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Next主题</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读《高效程序员的45个习惯——敏捷开发修炼之道》</title>
+    <url>/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%AF%BB%E3%80%8A%E9%AB%98%E6%95%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%8445%E4%B8%AA%E4%B9%A0%E6%83%AF%E2%80%94%E2%80%94%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E4%BF%AE%E7%82%BC%E4%B9%8B%E9%81%93%E3%80%8B.html</url>
+    <content><![CDATA[<p>什么是敏捷开发？<strong>敏捷开发就是在一个高度协作的环境中，不断地使用反馈进行自我调整和完善</strong>，作者认为敏捷是高效软件开发的先进方法。</p>
+<a id="more"></a>
+
+<h1 id="什么是敏捷"><a href="#什么是敏捷" class="headerlink" title="什么是敏捷"></a>什么是敏捷</h1><p>敏捷开发宣言：<strong>一种把以人为本，团队合作，快速响应变化和可工作的软件作为宗旨的开发方法</strong><br>敏捷开发重点：<strong>越早发现问题，就越容易修复问题，所以就应该在此时此刻把问题修复</strong></p>
+<h1 id="26个习惯"><a href="#26个习惯" class="headerlink" title="26个习惯"></a>26个习惯</h1><ol>
+<li>集中精力放在 <em>做事情</em> 上，莫去指责他人</li>
+<li><em>欲速则不达</em> ，要投入精力去保持代码的整洁，敞亮（做好代码复审）</li>
+<li><em>跟踪技术变化</em> ，不需要精通所有技术，但需要知道行业动向，从而规划项目和职业生涯</li>
+<li><em>对团队投资</em>，想办法增进团队成员的知识和技能</li>
+<li><em>懂的丢弃</em>，旧的不去新的不来，应用新的方法</li>
+<li>设法找到 <em>ROOT CAUSE</em></li>
+<li><em>保持项目时刻可以发布</em> ，随时可以编译运行测试和部署。</li>
+<li><em>持续集成</em> + 自动部署</li>
+<li><em>增量开发</em></li>
+<li><em>使用自动化的单元测试</em>，单元测试是优质股，值得投资</li>
+<li><em>使用TDD开发技术</em>， Test Driven Development 测试驱动开发，编码之前先写测试</li>
+<li><em>度量真实的进度</em>， 恰当的评估剩余工作量</li>
+<li><em>代码能清晰的表达意图</em>，代码表达准确，不令人迷惑，不写讨巧的代码，用注释沟通</li>
+<li><em>在短的编辑、构建、测试循环中编写代码</em>， 而不是一次性写完，采用增量开发</li>
+<li><em>内聚</em>，让类的功能尽量集中，让组件尽量小</li>
+<li><em>告知，不要询问</em>，告诉别的对象或则组件的做什么，然后盯着自己的职责</li>
+<li><em>保持接口的一致性</em>，提高适应性</li>
+<li><em>记录问题及解决方案</em>，分享给团队成员</li>
+<li><em>重视警告信息</em>，而不只关注error</li>
+<li><em>隔离问题域</em>，将问题域与周边隔离开，特别是大型软件中</li>
+<li><em>立会</em>，会议短小精悍不跑题</li>
+<li><em>成为指导者</em>，教学相长（也是投资团队的一种方式）</li>
+<li><em>给别人解决问题的机会</em>， 给他们指明方向，而不是直接给解决方案</li>
+<li><em>共享能用的代码</em>，经过编译测试，并成功后再共享代码</li>
+<li><em>代码复查</em>，结对编程等等</li>
+<li><em>及时通报进展与问题</em>，发布进展、新的想法和目前关注的问题</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在这里我将45个习惯根据自己的情况缩减到了26个，个人认为这26个习惯可以对自己的工作产生积极影响。</p>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>费曼技巧</title>
+    <url>/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%B4%B9%E6%9B%BC%E6%8A%80%E5%B7%A7.html</url>
+    <content><![CDATA[<p>那些声称清楚自己所想，但却不能清晰表达的人，其实通常不知道自己所想。— Mortimer Adler</p>
+<a id="more"></a>
+
+<h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>费曼技巧是有诺贝尔物理奖获得者理查德·费曼（Richand Feynman）的独特学习方法<a href="%5B%E8%B4%B9%E6%9B%BC%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%9C%80%E5%BC%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%5D(https://36kr.com/p/5078124.html)">^1</a>。</p>
+<p>费曼技巧有四个简单的步骤：(简要概括)</p>
+<ol>
+<li>选择一个概念</li>
+<li>把它教给完全不懂的另外一个人</li>
+<li>如果卡壳，回到原始材料</li>
+<li>回顾后简化语言表达（可选择）</li>
+</ol>
+<p>知识有两种类型：第一类知识注重了解某个事物的名称；第二类知识注重了解某件事物。</p>
+<h1 id="费曼技巧"><a href="#费曼技巧" class="headerlink" title="费曼技巧"></a><strong>费曼技巧</strong></h1><p>该技巧主要包含四步：</p>
+<p><strong>第一步：把它教给一个小孩子。</strong></p>
+<p>拿出一张白纸，在上方写下你想要学习的主题。想一下，如果你要把它教给一个孩子，你会讲哪些，并写下来。这里你的教授对象不是你自己那些聪明的成年朋友，而是一个 8 岁的孩子，他的词汇量和注意力刚好能够理解基本概念和关系。</p>
+<p>许多人会倾向于使用<code>复杂的词汇</code>和<code>行话</code>来掩盖他们不明白的东西。问题是我们只在糊弄自己，因为我们不知道自己也不明白。另外，使用行话会隐藏周围人对我们的误解。</p>
+<p>当你自始至终都用孩子可以理解的简单的语言写出一个想法（提示：只用最常见的单词），那么你便迫使自己在更深层次上理解了该概念，并简化了观点之间的关系和联系。如果你努力，就会清楚地知道自己在哪里还有不明白的地方。这种<code>紧张状态</code>很好——预示着学习的机会到来了。</p>
+<p><strong>第二步：回顾。</strong></p>
+<p>在第一步中，你不可避免地会卡壳，忘记重要的点，不能解释，或者说不能将重要的概念联系起来。</p>
+<p>这一<code>反馈</code>相当宝贵，因为你已经发现了自己知识的边缘。懂得自己能力的界限也是一种能力，你刚刚就确定了一个！</p>
+<p>这是学习开始的地方。现在你知道自己在哪里卡住了，那么就回到原始材料，重新学习，直到你可以用基本的术语解释这一概念。</p>
+<p>认定自己知识的界限，会限制你可能犯的错误，并且在应用该知识时，可以增加成功的几率。</p>
+<p><strong>第三步：将语言条理化，简化。</strong></p>
+<p>现在你手上有一套自己手写笔记，检查一下确保自己没有从原材料中借用任何行话。将这些笔记用简单的语言组织成一个流畅的故事。</p>
+<p>将这个故事大声读出来，如果这些解释不够简单，或者听起来比较混乱，很好，这意味着你想要理解该领域，还需要做一些工作。</p>
+<p><strong>第四步（可选）：传授</strong></p>
+<p>如果你真的想确保你的理解没什么问题，就把它教给另一个人（理想状态下，这个人应该对这个话题知之甚少，或者就找个 8 岁的孩子）。检测知识最终的途径是你能有能力把它传播给另一个人。</p>
+<p>这不仅是学习的妙方，还是窥探不同思维方式的窗口，它让你将想法撕开揉碎，从头重组。这种学习方法会让你对观点和概念有更为深入的理解。重要的是，以这种方式解决问题，你可以在别人不知道他们自己在说什么的情况下，理解这个问题。</p>
+<p>费曼的方法直观地认为智力是一个增长的过程，这与 Carol Dweck 的研究非常吻合，Carol Dweck 精确地描述了停滞型思维（fixed mindset）和成长型思维（growth mindset）之间的区别。</p>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+  </entry>
+</search>
