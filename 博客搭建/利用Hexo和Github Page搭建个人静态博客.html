@@ -30,10 +30,10 @@
 <meta property="og:description" content="通过Github Page搭建个人免费的静态博客，使用开源Hexo博客框架快速搭建博客，免去造轮子的工作，使得网络新手小白给自己搭建博客成为可能。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-01-08T12:27:02.000Z">
-<meta property="article:modified_time" content="2018-01-15T14:02:13.000Z">
+<meta property="article:modified_time" content="2020-12-20T15:50:06.254Z">
 <meta property="article:author" content="丹尼尔">
-<meta property="article:tag" content="Next主题">
 <meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="next">
 <meta name="twitter:card" content="summary">
 
 
@@ -228,20 +228,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -317,7 +317,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2018-01-15 22:02:13" itemprop="dateModified" datetime="2018-01-15T22:02:13+08:00">2018-01-15</time>
+        <time title="修改时间：2020-12-20 23:50:06" itemprop="dateModified" datetime="2020-12-20T23:50:06+08:00">2020-12-20</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -362,6 +362,7 @@
     <div class="post-body" itemprop="articleBody">
         <p>通过Github Page搭建个人免费的静态博客，使用开源Hexo博客框架快速搭建博客，免去造轮子的工作，使得网络新手小白给自己搭建博客成为可能。</p>
 <a id="more"></a>
+
 <h1 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h1><ul>
 <li>github 账号</li>
 <li>Git</li>
@@ -379,40 +380,54 @@
 <li><p>Node.js<br><a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a> 是<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>的依赖，Hexo需要依赖Node.js来工作。根据推荐下载合适的版本安装即可。</p>
 </li>
 <li><p>Hexo<br>Hexo是一套开源的博客框架。安装好Git和Node.js之后，在Git Bash终端中输入以下命令进行安装。</p>
+</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nmp install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h1 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h1></li>
+
+<h1 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h1><ul>
 <li><p>步骤</p>
 <ul>
-<li><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/setup.html">建站</a></p>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/setup.html">建站</a></li>
+</ul>
 <blockquote>
 <p>通过以下指令来生成所需要的文件</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-</li>
+
+<ul>
 <li><p>按照需要配置博客信息<br>在<strong>folder</strong>文件夹下生成的 ** _config.yml ** 是网站的 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration.html">配置</a> 信息，可以在此配置大部分的参数，比如对网站的标题，语言，主题等进行配置。</p>
 </li>
 <li><p>生成博客</p>
+</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate </span><br></pre></td></tr></table></figure>
+
 <p>or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></li>
-<li><p>预览博客</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>预览博客</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server	</span><br></pre></td></tr></table></figure>
+
 <p>or</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
 <p>如果以上步骤没有出现错误，则打开浏览器输入网址 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 即可预览博客</p>
-</li>
-<li><p>部署博客<br>部署是将生成好的博客代码，传输到博客的服务器上，这里对应的是Github Page。首先，需要对** _config.yml **配置文件中的 deploy字段进行配置。Hexo支持三种形式的<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/deployment.html">部署</a>，通过工具，或者是将生成博客文件自行上传到博客的仓库里，Hexo生成的所有博客所需文件都存放在Public中。然后，再执行部署命令进行部署。</p>
+<ul>
+<li>部署博客<br>部署是将生成好的博客代码，传输到博客的服务器上，这里对应的是Github Page。首先，需要对** _config.yml **配置文件中的 deploy字段进行配置。Hexo支持三种形式的<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/deployment.html">部署</a>，通过工具，或者是将生成博客文件自行上传到博客的仓库里，Hexo生成的所有博客所需文件都存放在Public中。然后，再执行部署命令进行部署。</li>
+</ul>
 <blockquote>
 <p>__Note: hexo的部署需要安装依赖包 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>。 __<br>配置 _config.yml, 下面以使用Git工具为例</p>
 </blockquote>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">	<span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">	<span class="attr">repo:</span> <span class="string">git@github.com:username/username.github.io.git</span></span><br><span class="line">	<span class="attr">message:</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>执行部署命令</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
 <p>到此，通过Hexo博客framework搭建个人静态博客到此算是成功一半了，因为这仅仅是把博客的一整个套路走完了，后面还会涉及到一些文章的新建，博客主题的设定，评论区的构成等等。</p>
-</li>
-</ul>
 </li>
 </ul>
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这是我个人第一次在网络上搭建博客，将自己的搭建的过程简略的回忆和复述，以提高个人的学习以及写作能力，以此同时要是能供新手小白参考入门起到一定积极作用更佳。网络上大神无私的分享自己的搭建经验，引领我入门，在此谢过！</p>
@@ -444,8 +459,8 @@
   </div>
 
           <div class="post-tags">
-              <a href="/tags/Next%E4%B8%BB%E9%A2%98/" rel="tag"># Next主题</a>
               <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/next/" rel="tag"># next</a>
           </div>
 
         

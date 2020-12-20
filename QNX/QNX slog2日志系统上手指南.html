@@ -22,21 +22,21 @@
     var CONFIG = {"hostname":"trumming.github.io","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="对于博主新手来说，对于javascript和前端，网页制作都是小白，认识非常少。虽然这个问题很小，但是遇到问题有时不知道如何下手，在一些错误的方法中试错，非常耽误时间。这里多亏网友们的分享，才能快速定位到可能的原因，最后慢慢解决问题。">
+  <meta name="description" content="概要slog2 是QNX系统提供的一套log机制；可通过slog2info命令获取历史log；">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Next主题之tags页面报错">
-<meta property="og:url" content="https://trumming.github.io/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Next%E4%B8%BB%E9%A2%98%E4%B9%8BTags%E9%A1%B5%E9%9D%A2%E6%8A%A5%E9%94%99.html">
+<meta property="og:title" content="QNX slog2日志系统上手指南">
+<meta property="og:url" content="https://trumming.github.io/QNX/QNX%20slog2%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97.html">
 <meta property="og:site_name" content="丹尼尔的博客">
-<meta property="og:description" content="对于博主新手来说，对于javascript和前端，网页制作都是小白，认识非常少。虽然这个问题很小，但是遇到问题有时不知道如何下手，在一些错误的方法中试错，非常耽误时间。这里多亏网友们的分享，才能快速定位到可能的原因，最后慢慢解决问题。">
+<meta property="og:description" content="概要slog2 是QNX系统提供的一套log机制；可通过slog2info命令获取历史log；">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-03-29T12:51:04.000Z">
-<meta property="article:modified_time" content="2020-10-15T14:52:05.000Z">
+<meta property="article:published_time" content="2020-10-08T10:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-20T15:50:03.804Z">
 <meta property="article:author" content="丹尼尔">
-<meta property="article:tag" content="Next主题">
+<meta property="article:tag" content="slog2">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://trumming.github.io/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Next%E4%B8%BB%E9%A2%98%E4%B9%8BTags%E9%A1%B5%E9%9D%A2%E6%8A%A5%E9%94%99.html">
+<link rel="canonical" href="https://trumming.github.io/QNX/QNX%20slog2%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97.html">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>Next主题之tags页面报错 | 丹尼尔的博客</title>
+  <title>QNX slog2日志系统上手指南 | 丹尼尔的博客</title>
   
 
 
@@ -211,7 +211,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E9%A1%B5"><span class="nav-number">2.</span> <span class="nav-text">创建新页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">概要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8slog2"><span class="nav-number">2.</span> <span class="nav-text">使用slog2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">使用流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.1.</span> <span class="nav-text">1 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BAslog2-buffer%E9%9B%86%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.1.2.</span> <span class="nav-text">2 创建slog2 buffer集实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%89%93%E5%8D%B0log"><span class="nav-number">2.1.3.</span> <span class="nav-text">3 打印log</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9"><span class="nav-number">2.2.</span> <span class="nav-text">编译选项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bslog2"><span class="nav-number">3.</span> <span class="nav-text">查看slog2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -285,7 +285,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://trumming.github.io/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Next%E4%B8%BB%E9%A2%98%E4%B9%8BTags%E9%A1%B5%E9%9D%A2%E6%8A%A5%E9%94%99.html">
+    <link itemprop="mainEntityOfPage" href="https://trumming.github.io/QNX/QNX%20slog2%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -298,7 +298,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Next主题之tags页面报错
+          QNX slog2日志系统上手指南
         </h1>
 
         <div class="post-meta-container">
@@ -309,14 +309,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-03-29 20:51:04" itemprop="dateCreated datePublished" datetime="2018-03-29T20:51:04+08:00">2018-03-29</time>
+      <time title="创建时间：2020-10-08 18:00:00" itemprop="dateCreated datePublished" datetime="2020-10-08T18:00:00+08:00">2020-10-08</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-15 22:52:05" itemprop="dateModified" datetime="2020-10-15T22:52:05+08:00">2020-10-15</time>
+        <time title="修改时间：2020-12-20 23:50:03" itemprop="dateModified" datetime="2020-12-20T23:50:03+08:00">2020-12-20</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -324,7 +324,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+          <a href="/categories/QNX/" itemprop="url" rel="index"><span itemprop="name">QNX</span></a>
         </span>
     </span>
 
@@ -344,8 +344,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Next%E4%B8%BB%E9%A2%98%E4%B9%8BTags%E9%A1%B5%E9%9D%A2%E6%8A%A5%E9%94%99.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Next%E4%B8%BB%E9%A2%98%E4%B9%8BTags%E9%A1%B5%E9%9D%A2%E6%8A%A5%E9%94%99.html" itemprop="commentCount"></span>
+    <a title="valine" href="/QNX/QNX%20slog2%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/QNX/QNX%20slog2%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -359,28 +359,78 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>对于博主新手来说，对于javascript和前端，网页制作都是小白，认识非常少。虽然这个问题很小，但是遇到问题有时不知道如何下手，在一些错误的方法中试错，非常耽误时间。这里多亏网友们的分享，才能快速定位到可能的原因，最后慢慢解决问题。</p>
-<a id="more"></a> 
+        <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>slog2 是QNX系统提供的一套log机制；可通过slog2info命令获取历史log；</p>
+<a id="more"></a>
+<h1 id="使用slog2"><a href="#使用slog2" class="headerlink" title="使用slog2"></a>使用slog2</h1><h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><p>1 配置<strong>buffer集</strong>名称和大小，以及log等级</p>
+<p>2 创建slog2 <strong>buffer集</strong> 实例</p>
+<p>3 打印log</p>
+<h3 id="1-配置"><a href="#1-配置" class="headerlink" title="1 配置"></a>1 配置</h3><ul>
+<li><p>buffer set 配置</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    int                   num_buffers;</span><br><span class="line">    const char           *buffer_set_name;</span><br><span class="line">    uint8_t               verbosity_level;</span><br><span class="line">    slog2_buffer_config_t buffer_config[ SLOG2_MAX_BUFFERS ];</span><br><span class="line">    uint32_t              max_retries;</span><br><span class="line">&#125; slog2_buffer_set_config_t;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>num_buffers ： log <strong>buffer集</strong> 中有多少个buffer</li>
+<li>buffer_set_name : log <strong>buffer集</strong>的名称一般是进程名，slog2info -b 参数使用</li>
+<li>verbosity_level ： 整个log <strong>buffer集</strong>中的最小verbosity_level，只有高于verbosity_level的log才会写入log buffer中；</li>
+<li>buffer_config ：log buffer</li>
+</ul>
+</li>
+<li><p>buffer 配置</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    const char    *buffer_name;</span><br><span class="line">    int            num_pages;</span><br><span class="line">&#125; slog2_buffer_config_t;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>buffer name ： slog2 buffer 名称</li>
+<li>num_pages : 用于定于log buffer的大小，一个page是4kB</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-创建slog2-buffer集实例"><a href="#2-创建slog2-buffer集实例" class="headerlink" title="2 创建slog2 buffer集实例"></a>2 创建slog2 buffer集实例</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;sys&#x2F;slog2.h&gt;</span><br><span class="line"></span><br><span class="line">int slog2_register( slog2_buffer_set_config_t *config,</span><br><span class="line">                    slog2_buffer_t *handles,</span><br><span class="line">                    uint32_t flags );</span><br></pre></td></tr></table></figure>
 
-<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>  这段时间博主遇到了一些问题，debug信息如下：</p>
-<pre><code>GET /tags/ 404 0.993 ms - 144</code></pre>
-<p>  我按照Next给出文档打开相应的tags标签，在public文件夹中也生成了_tags_文件夹，但在页面点击标签时爆出上面的错误，很是纳闷。配置如下：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">tags</span></span><br></pre></td></tr></table></figure>
-<p>  最后通过查阅网友的搭建经验分享和<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/theme-settings.html#tags-page">next官方文档</a>，最后找到了答案。我虽然在Next主题的配置文件_config.yml_中打开了tags标签，但是并没有在_tags_文件夹中生成index.html文件，从而导致了问题的产生，所以解决的方式就是创建出这个index.html文件。</p>
-<h1 id="创建新页"><a href="#创建新页" class="headerlink" title="创建新页"></a>创建新页</h1><p>  通过<code>new page</code>命令来生成所需要的页面。</p>
-<pre><code>$ hexo new page tags</code></pre>
-<p>  此命令会在_source_文件夹中生成一个_tags_文件夹，里头有一个index.md文件，修改其中内容为：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>  然后再重新生成网页，这时发现在_tags_文件夹中生成了index.html文件。最后经过测试问题解决。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>分析解决这个问题过程中会用到的命令：</p>
-<ul>
-<li>查看debug信息<br>通过在命令后面加<code>--debug</code>字段显示调试信息，例如：</li>
+* config ： buffer集的配置结构体
+* handles ： 返回操作buffer的handle，后面打印log函数会用到
+* flags ：用于指定是否存放到flash中，方便热启时恢复；[参考链接](http://www.qnx.com/developers/docs/7.1/#com.qnx.doc.neutrino.lib_ref/topic/s/slog2_register.html)
+* 返回值：0 成功，-1 失败</code></pre>
+<h3 id="3-打印log"><a href="#3-打印log" class="headerlink" title="3 打印log"></a>3 打印log</h3><ul>
+<li>打印一段固定字符串</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server --debug</span><br></pre></td></tr></table></figure>
+<p><code>int slog2c( slog2_buffer_t buffer,             uint16_t code,             uint8_t severity,             const char* data );</code></p>
+<p>slog2c( handle, 0, SLOG2_INFO,  “Writing a constant string into the buffer” );</p>
+<p><strong>code</strong>参数在slog2info -e 中用到，slog2系统不做任何处理；</p>
 <ul>
-<li>新建页面命令</li>
+<li>打印一段格式化字符串<br>`int slog2f( slog2_buffer_t buffer,<pre><code>      uint16_t code,
+      uint8_t severity,
+      const char* format, ... );`</code></pre>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>slog2f( handle, 0, SLOG2_INFO, “Writing a formatted string into the buffer: %s”, argv[0] );</p>
+<ul>
+<li>打印一段格式化字符串，不会触发中断，可用于中断函数中，格式化是在读取log的时候发生<br>`int slog2fa( slog2_buffer_t buffer,<pre><code>       uint16_t code,
+       uint8_t severity,
+       const char* format, ... );`</code></pre>
+</li>
+</ul>
+<p>SLOG2_FA_ 开头的宏必须的；</p>
+<p>slog2fa( buffer_handle[0], 0, SLOG2_WARNING, “string:%s, some_number:%d”,SLOG2_FA_STRING( “Hello world” ),SLOG2_FA_SIGNED( some_number ),SLOG2_FA_END);</p>
+<h2 id="编译选项"><a href="#编译选项" class="headerlink" title="编译选项"></a>编译选项</h2><ul>
+<li>头文件 #include &lt;sys/slog2.h&gt;</li>
+<li>需要链接库 libslog2 </li>
+</ul>
+<h1 id="查看slog2"><a href="#查看slog2" class="headerlink" title="查看slog2"></a>查看slog2</h1><p>使用slog2info 命令来查看具体的log内容<br><code>slog2info [-acfinSstvWw] [-b bset1,bset2,...] [-d path]           [-e code1,code2,...] [-l filename] [-r [resetfilename]]</code></p>
+<ul>
+<li>查看某一个bufferset的log  <code>slog2info -b buffer_set_name</code></li>
+<li>查看从最后一次reset开始的log  <code>slog2info -r</code></li>
+<li>一直打印log到终端 <code>slog2info -w</code></li>
+</ul>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>verbosity_level：</p>
+<ul>
+<li>SLOG2_SHUTDOWN — shut down the system now (e.g., for OEM use).</li>
+<li>SLOG2_CRITICAL — unexpected unrecoverable error (e.g., hard disk error).</li>
+<li>SLOG2_ERROR — unexpected recoverable error (e.g., you need to reset a hardware controller).</li>
+<li>SLOG2_WARNING — expected error (e.g., parity error on a serial port).</li>
+<li>SLOG2_NOTICE — warning (e.g., out of paper).</li>
+<li>SLOG2_INFO — information (e.g., printing page 3).</li>
+<li>SLOG2_DEBUG1 — debug messages (e.g., normal detail).</li>
+<li>SLOG2_DEBUG2 — debug messages (e.g., fine detail).</li>
+</ul>
+
     </div>
 
     
@@ -408,20 +458,20 @@
   </div>
 
           <div class="post-tags">
-              <a href="/tags/Next%E4%B8%BB%E9%A2%98/" rel="tag"># Next主题</a>
+              <a href="/tags/slog2/" rel="tag"># slog2</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Next%E4%B8%BB%E9%A2%98%E4%B9%8Btags%E9%A1%B5%E9%9D%A2%E6%8A%A5%E9%94%99%20.html" rel="prev" title="Next主题之tags页面报错">
-                  <i class="fa fa-chevron-left"></i> Next主题之tags页面报错
+                <a href="/uncategorized/Samba%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8-Ubuntu-16-04.html" rel="prev" title="Samba使用入门[Ubuntu 16.04]">
+                  <i class="fa fa-chevron-left"></i> Samba使用入门[Ubuntu 16.04]
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%AF%BB%E3%80%8A%E9%AB%98%E6%95%88%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%8445%E4%B8%AA%E4%B9%A0%E6%83%AF%E2%80%94%E2%80%94%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E4%BF%AE%E7%82%BC%E4%B9%8B%E9%81%93%E3%80%8B.html" rel="next" title="读《高效程序员的45个习惯——敏捷开发修炼之道》">
-                  读《高效程序员的45个习惯——敏捷开发修炼之道》 <i class="fa fa-chevron-right"></i>
+                <a href="/QNX/QNX%20slog2%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97.html" rel="next" title="QNX slog2上手指南">
+                  QNX slog2上手指南 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -543,7 +593,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({"enable":true,"appId":"iPSIcjmEwUqVO1tfIXRSALDe-gzGzoHsz","appKey":"juKHgoqG3UEYH2JoctnL5AS2","serverURLs":"http://www.truming.com/","placeholder":">>_<< 来快活呀~","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-cn","visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
       el: '#valine-comments',
-      path: "/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Next%E4%B8%BB%E9%A2%98%E4%B9%8BTags%E9%A1%B5%E9%9D%A2%E6%8A%A5%E9%94%99.html",
+      path: "/QNX/QNX%20slog2%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97.html",
       serverURLs: "http://www.truming.com/"
     }));
   }, window.Valine);
