@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://trumming.github.io/%E8%87%AA%E5%B7%B1%E7%9E%8E%E5%86%99/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%B0%E7%AC%94%E8%AE%B0%E7%9A%84.html</loc>
+    
+    <lastmod>2020-12-26</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://trumming.github.io/QNX/%E6%B5%8B%E8%AF%95%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2.html</loc>
     
     <lastmod>2020-12-21</lastmod>
@@ -72,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://trumming.github.io/%E8%87%AA%E5%B7%B1%E7%9E%8E%E5%86%99/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%B0%E7%AC%94%E8%AE%B0%E7%9A%84.html</loc>
-    
-    <lastmod>2020-12-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://trumming.github.io/about/index.html</loc>
     
     <lastmod>2020-12-20</lastmod>
@@ -137,7 +137,7 @@
 
   <url>
     <loc>https://trumming.github.io/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -145,56 +145,56 @@
   
   <url>
     <loc>https://trumming.github.io/tags/Next%E4%B8%BB%E9%A2%98/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/tags/slog2/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/tags/SLM/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/tags/Samba/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/tags/Python/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/tags/Hexo/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/tags/next/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/tags/slog/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -203,35 +203,35 @@
   
   <url>
     <loc>https://trumming.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/categories/Python/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/categories/QNX/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/categories/%E8%87%AA%E5%B7%B1%E7%9E%8E%E5%86%99/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://trumming.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2020-12-21</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
