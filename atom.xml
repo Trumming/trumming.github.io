@@ -6,7 +6,7 @@
   <link href="https://trumming.github.io/atom.xml" rel="self"/>
   
   <link href="https://trumming.github.io/"/>
-  <updated>2020-12-26T15:03:36.677Z</updated>
+  <updated>2020-12-27T15:50:03.414Z</updated>
   <id>https://trumming.github.io/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>术语库</title>
+    <link href="https://trumming.github.io/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E6%9C%AF%E8%AF%AD%E5%BA%93.html"/>
+    <id>https://trumming.github.io/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E6%9C%AF%E8%AF%AD%E5%BA%93.html</id>
+    <published>2020-12-27T10:00:00.000Z</published>
+    <updated>2020-12-27T15:50:03.414Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录业内常用、通用的技术术语，按开头第一个字母正序排列。</p><a id="more"></a><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><h3 id="T"><a href="#T" class="headerlink" title="T"></a>T</h3><ol><li>TSL: Transport Security Layer<h3 id="S"><a href="#S" class="headerlink" title="S"></a>S</h3></li><li>SHE : Security Hardware Extension</li><li>SSL : Security Sockets Layer</li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;记录业内常用、通用的技术术语，按开头第一个字母正序排列。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="效率工具" scheme="https://trumming.github.io/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>蔚来汽车的语音助手NOMI</title>
+    <link href="https://trumming.github.io/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%94%9A%E6%9D%A5%E6%B1%BD%E8%BD%A6%E7%9A%84%E8%AF%AD%E9%9F%B3%E5%8A%A9%E6%89%8BNOMI.html"/>
+    <id>https://trumming.github.io/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%94%9A%E6%9D%A5%E6%B1%BD%E8%BD%A6%E7%9A%84%E8%AF%AD%E9%9F%B3%E5%8A%A9%E6%89%8BNOMI.html</id>
+    <published>2020-12-26T10:00:00.000Z</published>
+    <updated>2020-12-27T15:50:03.364Z</updated>
+    
+    <content type="html"><![CDATA[<p>第一个问题是 <em>AI 的恐怖谷效应</em>，也就是当 AI 与人在外表或者动作十分相像时，人类会对 AI 产生好感，但同时随着相似度增加，人们又会注意到 AI 与人的细微差别，而产生恐惧的心理；</p><p>第二个问题是车规以及工业设计的挑战，类似 NOMI 这样一个几千元级别的偏消费电子的产品，如何与一辆售价 40 - 50 万元级别的豪华车相得益彰，外观上不掉价、不过时；同时这样的 AI 实体要满足车规要求，不能在碰撞试验中增加用户的安全风险；</p><p>第三是 NOMI 有了表情、声音和动作之后，这些动作如何进行精密同步，这比语音和 TTS（屏幕上的文字）同步，难度要再增加 1 - 2 个台阶。</p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://zhuanlan.zhihu.com/p/147463996">蔚来NOMI的野望：超越车载语音助手</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;第一个问题是 &lt;em&gt;AI 的恐怖谷效应&lt;/em&gt;，也就是当 AI 与人在外表或者动作十分相像时，人类会对 AI 产生好感，但同时随着相似度增加，人们又会注意到 AI 与人的细微差别，而产生恐惧的心理；&lt;/p&gt;
+&lt;p&gt;第二个问题是车规以及工业设计的挑战，类似 NOMI 这样</summary>
+      
+    
+    
+    
+    <category term="读书笔记" scheme="https://trumming.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>我是如何记笔记的</title>
     <link href="https://trumming.github.io/%E8%87%AA%E5%B7%B1%E7%9E%8E%E5%86%99/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%B0%E7%AC%94%E8%AE%B0%E7%9A%84.html"/>
     <id>https://trumming.github.io/%E8%87%AA%E5%B7%B1%E7%9E%8E%E5%86%99/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%B0%E7%AC%94%E8%AE%B0%E7%9A%84.html</id>
     <published>2020-12-21T10:00:00.000Z</published>
-    <updated>2020-12-26T15:03:36.677Z</updated>
+    <updated>2020-12-27T15:50:03.474Z</updated>
     
     <content type="html"><![CDATA[<h1 id="如何对笔记进行分类"><a href="#如何对笔记进行分类" class="headerlink" title="如何对笔记进行分类"></a>如何对笔记进行分类</h1><p>初衷是做减法；</p><p>个人写作能力一般，不要脑子蹦个什么出来都去写，而是要写自己专注部分的思考和实践。</p><a id="more"></a><h2 id="标签-tags"><a href="#标签-tags" class="headerlink" title="标签 tags"></a>标签 tags</h2><h2 id="分类-categories"><a href="#分类-categories" class="headerlink" title="分类 categories"></a>分类 categories</h2><h3 id="软件工具"><a href="#软件工具" class="headerlink" title="软件工具"></a>软件工具</h3><ul><li>总结一些软件开发过程中会用到的工具，一般只软件开发专用的软件，比如编程语言、设计工具、代码管理工具、IDE、等</li></ul><h3 id="效率工具"><a href="#效率工具" class="headerlink" title="效率工具"></a>效率工具</h3><ul><li>提升工作效率的小tips，能够提高效率的一些方法论，以及工具分享，例如好用的截图软件、国内镜像源、梯子等</li></ul><h3 id="QNX"><a href="#QNX" class="headerlink" title="QNX"></a>QNX</h3><ul><li>qnx 操作系统相关的所有</li></ul><h3 id="读书笔记"><a href="#读书笔记" class="headerlink" title="读书笔记"></a>读书笔记</h3><h3 id="自己瞎写"><a href="#自己瞎写" class="headerlink" title="自己瞎写"></a>自己瞎写</h3><h2 id="笔记软件"><a href="#笔记软件" class="headerlink" title="笔记软件"></a>笔记软件</h2><ul><li><p>onenote</p></li><li><p>有道云笔记</p></li></ul>]]></content>
     

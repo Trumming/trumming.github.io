@@ -874,6 +874,21 @@
       </categories>
   </entry>
   <entry>
+    <title>术语库</title>
+    <url>/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E6%9C%AF%E8%AF%AD%E5%BA%93.html</url>
+    <content><![CDATA[<p>记录业内常用、通用的技术术语，按开头第一个字母正序排列。</p>
+<a id="more"></a>
+<h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><h3 id="T"><a href="#T" class="headerlink" title="T"></a>T</h3><ol>
+<li>TSL: Transport Security Layer<h3 id="S"><a href="#S" class="headerlink" title="S"></a>S</h3></li>
+<li>SHE : Security Hardware Extension</li>
+<li>SSL : Security Sockets Layer</li>
+</ol>
+]]></content>
+      <categories>
+        <category>效率工具</category>
+      </categories>
+  </entry>
+  <entry>
     <title>测试自动部署</title>
     <url>/QNX/%E6%B5%8B%E8%AF%95%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2.html</url>
     <content><![CDATA[<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>今天是第二次测试，看看结果如何；<br>今天是第三次测试，看看结果如何；<br>今天是第四次测试，看看结果如何；<br>今天是第五次测试，看看结果如何；<br>今天是第六次测试，看看结果如何；</p>
@@ -884,6 +899,18 @@
       <tags>
         <tag>slog</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>蔚来汽车的语音助手NOMI</title>
+    <url>/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%94%9A%E6%9D%A5%E6%B1%BD%E8%BD%A6%E7%9A%84%E8%AF%AD%E9%9F%B3%E5%8A%A9%E6%89%8BNOMI.html</url>
+    <content><![CDATA[<p>第一个问题是 <em>AI 的恐怖谷效应</em>，也就是当 AI 与人在外表或者动作十分相像时，人类会对 AI 产生好感，但同时随着相似度增加，人们又会注意到 AI 与人的细微差别，而产生恐惧的心理；</p>
+<p>第二个问题是车规以及工业设计的挑战，类似 NOMI 这样一个几千元级别的偏消费电子的产品，如何与一辆售价 40 - 50 万元级别的豪华车相得益彰，外观上不掉价、不过时；同时这样的 AI 实体要满足车规要求，不能在碰撞试验中增加用户的安全风险；</p>
+<p>第三是 NOMI 有了表情、声音和动作之后，这些动作如何进行精密同步，这比语音和 TTS（屏幕上的文字）同步，难度要再增加 1 - 2 个台阶。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://zhuanlan.zhihu.com/p/147463996">蔚来NOMI的野望：超越车载语音助手</a></p>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
   </entry>
   <entry>
     <title>读《高效程序员的45个习惯——敏捷开发修炼之道》</title>
