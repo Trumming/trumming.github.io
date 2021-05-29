@@ -22,31 +22,35 @@
     var CONFIG = {"hostname":"trumming.github.io","root":"/","scheme":"Mist","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="记录自己学习的心路历程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="丹尼尔的博客">
-<meta property="og:url" content="https://trumming.github.io/index.html">
+  <meta name="description" content="基础概念POSIX 标准 文件系统 常用命令查询 grep -rn “strings” [file] 在file指定的文件中查找包含“strings”字符的文件，并打印出行号  find [path] -name “filename” 在path指定的目录下查找文件名为filename的文件  awk awk是一种编程语言，用于在linux&#x2F;unix下对文本和数据进行处理。 awk &#39;BE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类Unix系统常用Tips">
+<meta property="og:url" content="https://trumming.github.io/QNX/%E7%B1%BBUnix%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8Tips.html">
 <meta property="og:site_name" content="丹尼尔的博客">
-<meta property="og:description" content="记录自己学习的心路历程">
+<meta property="og:description" content="基础概念POSIX 标准 文件系统 常用命令查询 grep -rn “strings” [file] 在file指定的文件中查找包含“strings”字符的文件，并打印出行号  find [path] -name “filename” 在path指定的目录下查找文件名为filename的文件  awk awk是一种编程语言，用于在linux&#x2F;unix下对文本和数据进行处理。 awk &#39;BE">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-18T10:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-29T08:30:43.430Z">
 <meta property="article:author" content="丹尼尔">
+<meta property="article:tag" content="常用概念">
+<meta property="article:tag" content="常用工具">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://trumming.github.io/">
+<link rel="canonical" href="https://trumming.github.io/QNX/%E7%B1%BBUnix%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8Tips.html">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>丹尼尔的博客</title>
+  <title>类Unix系统常用Tips | 丹尼尔的博客</title>
   
 
 
@@ -196,7 +200,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -208,6 +212,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基础概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.1.</span> <span class="nav-text">查询</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">常用工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">3.1.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tmux"><span class="nav-number">3.2.</span> <span class="nav-text">Tmux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="nav-number">3.2.1.</span> <span class="nav-text">基础操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">3.2.2.</span> <span class="nav-text">进阶操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Putty"><span class="nav-number">3.3.</span> <span class="nav-text">Putty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell"><span class="nav-number">3.4.</span> <span class="nav-text">Shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lftp"><span class="nav-number">3.5.</span> <span class="nav-text">lftp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unzip"><span class="nav-number">3.6.</span> <span class="nav-text">unzip</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">系统设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">代理设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.2.</span> <span class="nav-text">镜像下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="nav-number">4.3.</span> <span class="nav-text">软件源</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -268,106 +273,12 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
       
 
       
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://trumming.github.io/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/USB%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="丹尼尔">
-      <meta itemprop="description" content="记录自己学习的心路历程">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丹尼尔的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/USB%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8.html" class="post-title-link" itemprop="url">USB知识入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-18 18:00:00" itemprop="dateCreated datePublished" datetime="2021-03-18T18:00:00+08:00">2021-03-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-29 16:30:42" itemprop="dateModified" datetime="2021-05-29T16:30:42+08:00">2021-05-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">技术知识</span></a>
-        </span>
-    </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/USB%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/USB%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>NCM usbnet驱动详解 <a target="_blank" rel="noopener" href="https://blog.csdn.net/zqixiao_09/article/details/53310226">https://blog.csdn.net/zqixiao_09/article/details/53310226</a><br>NCM 内核配置 <a target="_blank" rel="noopener" href="https://blog.csdn.net/u012247418/article/details/107727782">https://blog.csdn.net/u012247418/article/details/107727782</a><br>USB协议详解 <a target="_blank" rel="noopener" href="https://blog.csdn.net/leho666/article/details/88532614">https://blog.csdn.net/leho666/article/details/88532614</a><br>Linux板卡虚拟为网卡设备 <a target="_blank" rel="noopener" href="https://blog.csdn.net/u010443710/article/details/103860226?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_baidulandingword-1&amp;spm=1001.2101.3001.4242">https://blog.csdn.net/u010443710/article/details/103860226?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_baidulandingword-1&amp;spm=1001.2101.3001.4242</a><br>USB原理简述 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/dchipnau/p/5255347.html">https://www.cnblogs.com/dchipnau/p/5255347.html</a> ， <a target="_blank" rel="noopener" href="https://blog.csdn.net/cupidove/article/details/23739661">https://blog.csdn.net/cupidove/article/details/23739661</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
 
 
 <div class="post-block">
@@ -387,10 +298,9 @@
       <meta itemprop="name" content="丹尼尔的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/QNX/%E7%B1%BBUnix%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8Tips.html" class="post-title-link" itemprop="url">类Unix系统常用Tips</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          类Unix系统常用Tips
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -420,6 +330,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
   
   <span class="post-meta-item">
     
@@ -443,7 +360,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><p>POSIX 标准</p>
+        <h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><p>POSIX 标准</p>
 <p>文件系统</p>
 <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><ul>
 <li><p>grep -rn “strings” [file]</p>
@@ -667,7 +584,6 @@ tumx attach -t &lt;session name&gt;
 <li>阿里源</li>
 </ul>
 
-      
     </div>
 
     
@@ -675,411 +591,44 @@ tumx attach -t &lt;session name&gt;
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://trumming.github.io/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84%E5%8C%96%E7%B3%BB%E7%BB%9F%E5%8C%96.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="丹尼尔">
-      <meta itemprop="description" content="记录自己学习的心路历程">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丹尼尔的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
           
-            <a href="/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84%E5%8C%96%E7%B3%BB%E7%BB%9F%E5%8C%96.html" class="post-title-link" itemprop="url">知识结构化系统化</a>
-        </h2>
 
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
+  <div class="followme">
+    <span>欢迎关注我的其它发布渠道</span>
 
-      <time title="创建时间：2021-02-26 18:00:00" itemprop="dateCreated datePublished" datetime="2021-02-26T18:00:00+08:00">2021-02-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-16 23:50:02" itemprop="dateModified" datetime="2021-03-16T23:50:02+08:00">2021-03-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">效率工具</span></a>
-        </span>
-    </span>
+    <div class="social-list">
 
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84%E5%8C%96%E7%B3%BB%E7%BB%9F%E5%8C%96.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84%E5%8C%96%E7%B3%BB%E7%BB%9F%E5%8C%96.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
 
+            <span class="label">RSS</span>
+          </a>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="知识树搭建"><a href="#知识树搭建" class="headerlink" title="知识树搭建"></a>知识树搭建</h1><h1 id="资源库"><a href="#资源库" class="headerlink" title="资源库"></a>资源库</h1><ul>
-<li>学习资源</li>
-<li>工具资源</li>
-<li>在线工具资源<h1 id="知识固化与回顾"><a href="#知识固化与回顾" class="headerlink" title="知识固化与回顾"></a>知识固化与回顾</h1></li>
-</ul>
-<h1 id="搭建一个开放系统"><a href="#搭建一个开放系统" class="headerlink" title="搭建一个开放系统"></a>搭建一个开放系统</h1><ul>
-<li>外部信息输入</li>
-<li>对外输出</li>
-</ul>
-<h1 id="代码库代码片段"><a href="#代码库代码片段" class="headerlink" title="代码库代码片段"></a>代码库代码片段</h1>
-      
     </div>
+  </div>
 
-    
-    
-    
+          <div class="post-tags">
+              <a href="/tags/%E5%B8%B8%E7%94%A8%E6%A6%82%E5%BF%B5/" rel="tag"># 常用概念</a>
+              <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" rel="tag"># 常用工具</a>
+          </div>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://trumming.github.io/QNX/Low%20Memory%20Killer%20In%20QNX.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="丹尼尔">
-      <meta itemprop="description" content="记录自己学习的心路历程">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丹尼尔的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/QNX/Low%20Memory%20Killer%20In%20QNX.html" class="post-title-link" itemprop="url">Low Memory Killer In QNX</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-01-31 18:00:00 / 修改时间：23:50:03" itemprop="dateCreated datePublished" datetime="2021-01-31T18:00:00+08:00">2021-01-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/QNX/" itemprop="url" rel="index"><span itemprop="name">QNX</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/QNX/Low%20Memory%20Killer%20In%20QNX.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/QNX/Low%20Memory%20Killer%20In%20QNX.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>QNX系统下的Low Memory Killer，当内存极度低时，采取一定的措施将内存消耗的大户，做重启动作，防止整个系统不能工作；</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/QNX/Low%20Memory%20Killer%20In%20QNX.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://trumming.github.io/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%94%A1%E5%BF%97%E5%BF%A0%E3%80%8A%E5%8A%AA%E5%8A%9B%E6%98%AF%E6%B2%A1%E6%9C%89%E7%94%A8%E7%9A%84%E3%80%8B%E6%BC%94%E8%AE%B2.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="丹尼尔">
-      <meta itemprop="description" content="记录自己学习的心路历程">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丹尼尔的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%94%A1%E5%BF%97%E5%BF%A0%E3%80%8A%E5%8A%AA%E5%8A%9B%E6%98%AF%E6%B2%A1%E6%9C%89%E7%94%A8%E7%9A%84%E3%80%8B%E6%BC%94%E8%AE%B2.html" class="post-title-link" itemprop="url">蔡志忠《努力是没有用的》演讲</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-01-30 18:00:00" itemprop="dateCreated datePublished" datetime="2021-01-30T18:00:00+08:00">2021-01-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-29 16:30:42" itemprop="dateModified" datetime="2021-05-29T16:30:42+08:00">2021-05-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%94%A1%E5%BF%97%E5%BF%A0%E3%80%8A%E5%8A%AA%E5%8A%9B%E6%98%AF%E6%B2%A1%E6%9C%89%E7%94%A8%E7%9A%84%E3%80%8B%E6%BC%94%E8%AE%B2.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%94%A1%E5%BF%97%E5%BF%A0%E3%80%8A%E5%8A%AA%E5%8A%9B%E6%98%AF%E6%B2%A1%E6%9C%89%E7%94%A8%E7%9A%84%E3%80%8B%E6%BC%94%E8%AE%B2.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>人生不是走斜坡，你持续走就可以走到巅峰；人生像走阶梯，每一阶有每一阶的难点，学物理有物理的难点，学漫画有漫画的难点，你没有克服难点，再怎么努力都是原地跳。所以当你克服难点，你跳上去就不会下来了。就像你学会语文，即使你十年不讲，碰到状况就会讲；就像学脚踏车，十年没骑，碰到脚踏车一上去就可以上手一样。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E8%94%A1%E5%BF%97%E5%BF%A0%E3%80%8A%E5%8A%AA%E5%8A%9B%E6%98%AF%E6%B2%A1%E6%9C%89%E7%94%A8%E7%9A%84%E3%80%8B%E6%BC%94%E8%AE%B2.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84%E5%8C%96%E7%B3%BB%E7%BB%9F%E5%8C%96.html" rel="prev" title="知识结构化系统化">
+                  <i class="fa fa-chevron-left"></i> 知识结构化系统化
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://trumming.github.io/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E6%9C%AF%E8%AF%AD%E5%BA%93.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="丹尼尔">
-      <meta itemprop="description" content="记录自己学习的心路历程">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丹尼尔的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E6%9C%AF%E8%AF%AD%E5%BA%93.html" class="post-title-link" itemprop="url">术语库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-27 18:00:00" itemprop="dateCreated datePublished" datetime="2020-12-27T18:00:00+08:00">2020-12-27</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-29 16:30:42" itemprop="dateModified" datetime="2021-05-29T16:30:42+08:00">2021-05-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">效率工具</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E6%9C%AF%E8%AF%AD%E5%BA%93.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E6%9C%AF%E8%AF%AD%E5%BA%93.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>记录业内常用、通用的技术术语，按开头第一个字母正序排列。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/%E6%9C%AF%E8%AF%AD%E5%BA%93.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+            <div class="post-nav-item">
+                <a href="/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/USB%E7%9F%A5%E8%AF%86%E5%85%A5%E9%97%A8.html" rel="next" title="USB知识入门">
+                  USB知识入门 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          </div>
     </footer>
   </article>
 </div>
@@ -1088,14 +637,9 @@ tumx attach -t &lt;session name&gt;
 
 
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
 
       
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1203,7 +747,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({"enable":true,"appId":"iPSIcjmEwUqVO1tfIXRSALDe-gzGzoHsz","appKey":"juKHgoqG3UEYH2JoctnL5AS2","serverURLs":"http://www.truming.com/","placeholder":">>_<< 来快活呀~","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-cn","visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
       el: '#valine-comments',
-      path: "/",
+      path: "/QNX/%E7%B1%BBUnix%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8Tips.html",
       serverURLs: "http://www.truming.com/"
     }));
   }, window.Valine);
